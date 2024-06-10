@@ -1,4 +1,5 @@
 
+{% include navbar.html %}  {% include top-box.html %}
 
 ## Course Plan
 
@@ -10,7 +11,7 @@ The submission plan provides tasks, deadlines, and resources related to compulso
 - [Seminarplan](seminarplan.html){:target="blank"}
 - [Innleveringsplan](innleveringer.html){:target="blank"}   
 
-{% include navbar.html %}  {% include top-box.html %}
+
 
 [Timetable](https://timeplan.uit.no/emne_timeplan.php?sem=24h&fag=&module[]=SOK-3020-1#week-24){:target="blank"} on timeplan.uit.no
 
