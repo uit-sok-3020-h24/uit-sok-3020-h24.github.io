@@ -8,7 +8,7 @@ The lecture and seminar plan contain information about the timing, topics, cours
 
 The submission plan provides tasks, deadlines, and resources related to compulsory assignments.
 - [Seminarplan](seminarplan.html){:target="blank"}
-- [Innleveringsplan](innleveringer.html){:target="blank"}   
+
 
 
 
@@ -21,7 +21,7 @@ The course gives an wide introduction to applied econometrics. It introduces the
 Se full description [here](forelesningsplan.html){:target="blank"}
 
 ## Instructors 
-- [Øystein Myrland](https://uit.no/ansatte/oystein.myrland){:target="blank"} (fagansvarlig)
+- [Øystein Myrland](https://uit.no/ansatte/oystein.myrland){:target="blank"} (course responsible)
 - [Dejene Gizaw Kidane](https://uit.no/ansatte/dejene.g.kidane){:target="blank"}
 
 
