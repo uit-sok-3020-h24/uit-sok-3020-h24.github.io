@@ -1,56 +1,45 @@
-{% include navbar.html %}  {% include top-box.html %}
 
 
-## [Slik lager du et kursrepositorie](readme_no.html){:target="blank"} (Slettes)
+## Course Plan
 
+The lecture and seminar plan contain information about the timing, topics, course instructor, as well as resources/tasks for each topic.  
 
-## Kursplan  
+- [Lecture and Seminar Plan](forelesningsplan.html){:target="blank"}
 
-Forelesnings- og seminarplanene inneholder informasjon om tidspunkt, tema, faglærer samt ressurser/oppgaver til hvert tema.  
-Innleveringsplanen gir oppgaver, frister og ressurser i forbindelse med obligatoriske innleveringer.  
-
-- [Forelesningsplan](forelesningsplan.html){:target="blank"}
+The submission plan provides tasks, deadlines, and resources related to compulsory assignments.
 - [Seminarplan](seminarplan.html){:target="blank"}
 - [Innleveringsplan](innleveringer.html){:target="blank"}   
 
+{% include navbar.html %}  {% include top-box.html %}
 
-[Timeplan](https://timeplan.uit.no/){:target="blank"} på timeplan.uit.no
-
-
-## Kursbeskrivelse 
+[Timetable](https://timeplan.uit.no/emne_timeplan.php?sem=24h&fag=&module[]=SOK-3020-1#week-24){:target="blank"} on timeplan.uit.no
 
 
-Kurset består av ulike interessante tema  
+## Course Description
+The course gives an wide introduction to applied econometrics. It introduces the student to methodologies for analyzing economic problems using quantitative methods. There will be an emphasis on linking microeconomic theory to estimation techniques, and interpreting the results of various quantitative exercises using the R software environment for statistical computing and graphics. At the end of this course, students should have become proficient in developing and interpreting linear regression models as applied to a variety of economic problems and data.
+
+Se full description [here](forelesningsplan.html){:target="blank"}
+
+## Instructors 
+- [Øystein Myrland](https://uit.no/ansatte/oystein.myrland){:target="blank"} (fagansvarlig)
+- [Dejene Gizaw Kidane](https://uit.no/ansatte/dejene.g.kidane){:target="blank"}
 
 
-## Faglærerinfo  
-- [Derek J. Clark](https://uit.no/ansatte/derek.clark){:target="blank"} (fagansvarlig)
-- [Espen Sirnes](https://uit.no/ansatte/person?p_document_id=41418){:target="blank"}
+## Curriculum
 
+Textbook: [Principles of Econometrics](https://principlesofeconometrics.com/poe5/poe5.html){:target="blank"} 5th Edition (POE5), Wiley - 2018. Available at the campus bookstore Akademika.
 
+By R. Carter Hill, William E. Griffiths and Guay C. Lim. POE5 is an introductory book for students in economics and finance, as well as students in accounting, agricultural economics, marketing, public policy, sociology, law and political science. It assumes that students have a formal background with courses in the principles of economics/microeconomics, and elementary mathematics and statistics.
 
-## Administrative spørsmål
+Curriculum: The first eight chapters of the book.
 
-For henvendelser av administrative art send e-post til: <hhcampus@hjelp.uit.no>. Der får du hjelp av Handelshøgskolens administrasjon.
+## Announcements
+Announcements and messages are posted in Canvas.
 
+## Home Assignments, obligatory or not?
+You have an assignment portfolio. We will post a lot of small assignments, and some larger ones, in Canvas. Doing these earns various amounts of points to your portfolio. There will be a total of 100 points during the semester. You need 70 points to pass, and be eligible for the final exam. This means that you do not have to do all assignments. If you skip one, new chances will come.
 
-## Pensum  
+## Administrative Questions
 
-### Pensum til forelesningene
-
-[Leganto](https://bibsys-c.alma.exlibrisgroup.com/leganto/){:target="blank"}  
-
-
-
-
-## Kunngjøringer  
-
-Kunngjøringer og beskjeder legges ut i [Canvas](https://uit.instructure.com/){:target="blank"}.
-
-
-## Innlevering og eksamen  
-
-Kurset har mappeevaluering. Alle oppgaver er obligatorisk; noen er _arbeidskrav_ (uten karakter), mens andre er karaktergivende.  
-
-Frister, oppgaver og ressurser finnes i [innleveringsplan](innleveringer.html){:target="blank"}.    
+For administrative inquiries, please send an email to: [hhcampus@hjelp.uit.no](mailto:hhcampus@hjelp.uit.no){:target="blank"}. There, you will receive help from the School of Business Administration.
 
