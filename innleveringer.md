@@ -1,18 +1,7 @@
 {% include navbar.html %}{% include top-box.html %}
-# Sok-xxxx Mikroøkonomi   
+# SOK-3020 Econometrics  
 
-## Innleveringer 
-
-- Arbeidskrav er obligatorisk, men inngår ikke i mappen.
-- Mappeinnleveringer er obligatoriske, og danner grunnlag for karakter A-F på kurset.
-- Skriftlige mappeoppgaver leveres i [Wiseflow](https://europe.wiseflow.net/participant/){:target="blank"}. 
+## Assignments
+You have an assignment portfolio. We will post a lot of small assignments, and some larger ones, in Canvas. Doing these earns various amounts of points to your portfolio. There will be a total of 100 points during the semester. You need 70 points to pass, and be eligible for the final exam. This means that you do not have to do all assignments. If you skip one, new chances will come.
 
 
-| Type oppgave                       | Innleveringsfrist | Ressurser |
-|------------------------------------|-------------------|-----------|
-|Mappeoppgave 1                      |  xx.xx            | kommer    |
-|Arbeidskrav 1                       | Uke x/x           | kommer    |
-|Mappeoppgave 2                      | xx.xx kl xx:xx    | kommer    |
-
-
-Oppgavene kan løses i grupper på maksimalt 3.
