@@ -6,7 +6,7 @@
 |                  |          | If you need to sharpen your R skills, you can search Youtube for "learning r". Google has some introductory videos [here](https://www.youtube.com/playlist?list=PLOU2XLYxmsIK9qQfztXeybpHvru-TrqAP){:target='blank'}. Follow this link for a bunch of [Cheatsheets](https://posit.co/resources/cheatsheets/){:target='blank'}. Note the [RStudio IDE :: Cheatsheet](https://rstudio.github.io/cheatsheets/html/rstudio-ide.html){:target='blank'} and the [Data Transformation with dplyr](https://rstudio.github.io/cheatsheets/html/data-transformation.html) cheatsheet. Our textbook is: [Principles of Econometrics](http://principlesofeconometrics.com/poe5/poe5.html){:target='blank'}, 5th Edition (POE5), Wiley - 2018. Available at the campus bookstore Akademika. Buy the book! You will not manage the course without it. |
 | **Resources** |            | The 4th edition of our textbook has an [online version with R code](https://bookdown.org/ccolonescu/RPoE4/){:target='_blank_'}. There is an online book called [Introduction to econometrics with R](https://www.econometrics-with-r.org/index.html){:target='_blank_'}. Another online book is [Using R for Introductory Econometrics](http://urfie.net){:target='_blank_'}. Also available for Python and Julia. When you are on the UiT network, you have access to [Applied Econometrics with R](https://link.springer.com/book/10.1007%2F978-0-387-77318-6){:target='_blank_'}. They have a [web-page](https://eeecon.uibk.ac.at/~zeileis/teaching/AER/){:target='_blank_'}. Springer has a whole series of [books in the Use R! section](https://link.springer.com/search?facet-series=%226991%22&facet-content-type=%22Book%22){:target='_blank_'}. |
 |                  |         | The ultimate resource for online books on R is [The big book of R](https://www.bigbookofr.com/){:target='_blank_'}. |
-| 1                | 17/8    |  [Intro to R for Econometrics](https://raw.githubusercontent.com/uit-sok-3020-h23/uit-sok-3020-h23.github.io/main/intro%20to%20R%20for%20econometrics.qmd){:target='_blank_'} |
+| 1                | 15/8    |  [Intro to R for Econometrics](https://raw.githubusercontent.com/uit-sok-3020-h23/uit-sok-3020-h23.github.io/main/intro%20to%20R%20for%20econometrics.qmd){:target='_blank_'} |
 | | | Browse the paper "Econometric Computing with 'R'" (in Files in Canvas) |
 |  |  | Relating to our wages example in class, there is a [report out from SSB](https://www.ssb.no/inntekt-og-forbruk/inntekt-og-formue/artikler/forskjeller-i-livslopsinntekt-mellom-utdanningsgrupper/_/attachment/inline/fbc61677-a679-4edd-93d8-c6095b866d0d:138a258371f5d983314e8175b97bb5ed5adc04e3/RAPP2023-26.pdf){:target='_blank_'} that looks at lifetime income in different professions (in Norwegian) |
 | **Self Study** |     |  Probability Primer, POE5 p. 15-39 |
@@ -21,19 +21,10 @@
 |   |   | Example P.9 Iterated Expectation  [Rcode](https://raw.githubusercontent.com/uit-sok-3020-h23/uit-sok-3020-h23.github.io/main/example_p9%20iterated%20expectation.R){:target='_blank_'}     |  
 |   |   | Example P.10 Covariance Decomposition  [Rcode](https://raw.githubusercontent.com/uit-sok-3020-h23/uit-sok-3020-h23.github.io/main/example_p10%20covariance%20decomposition.R){:target='_blank_'}   |  
 |   |   | Example P.11 Normal Distribution Probability Calculation  [Rcode](https://raw.githubusercontent.com/uit-sok-3020-h23/uit-sok-3020-h23.github.io/main/example_p11-normal-distribution-probability-calculation.R){:target='_blank_'}  [video](https://uit.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=ed10162c-003a-441f-bc7f-b06200d77a64){:target='_blank_'}   |  
-| 2                | 25/8    | Chapter 1. An introduction to econometrics  [pdf](https://github.com/uit-sok-3020-h23/uit-sok-3020-h23.github.io/blob/main/Why%20Study%20Econometrics_.pdf){:target='_blank_'} [Quarto](https://raw.githubusercontent.com/uit-sok-3020-h23/uit-sok-3020-h23.github.io/main/chap1_why_study_econometrics.qmd){:target='_blank_'} [R_code](https://raw.githubusercontent.com/uit-sok-3020-h23/uit-sok-3020-h23.github.io/main/chap1_r_pres_annotated.r){:target='_blank_'}  |
-| 3  | 30/8 | Appendix A [Mathematical Tools in R](https://raw.githubusercontent.com/uit-sok-3020-h23/uit-sok-3020-h23.github.io/main/Appendix_A_annotated.R){:target='_blank_'} ["old" video](https://uit.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=e39c6666f51844efa636aee500c51b7a){:target='_blank_'}    |
-| **Self Study** |     |  Appendix B - Probability Concepts |
-| 4  | 4/9 |  Appendix C [Review of Statistical Inference](https://raw.githubusercontent.com/uit-sok-3020-h23/uit-sok-3020-h23.github.io/main/Appendix%20C.R){:target='_blank_'} ["old" video](https://uit.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=dc4c99e712144fb9867caee500c59292){:target='_blank_'}  |
-|    | **Resources from the mosaic package:**    | [Minimal R](https://cran.r-project.org/web/packages/mosaic/vignettes/MinimalRgg.pdf){:target='_blank_'}    |
-|    |        |    [Project MOSAIC Little Books](https://github.com/ProjectMOSAIC/LittleBooks/blob/master/README.md){:target='_blank_'}            |
-|    |        |     [Graphics and functions](http://www.mosaic-web.org/mosaic/articles/web-only/GraphicsWithMosaic.html){:target='_blank_'}      | 
-|    |        |   [Monte Carlo simulation or bootstrapping](http://www.mosaic-web.org/mosaic/articles/Resampling.html){:target='_blank_'}      |
-|    | **Supplementary readings:**    |   [Efron's bootstrap](https://academic.oup.com/jrssig/article/7/4/186/7037679){:target='_blank_'}  |
-|    |       | [P–Value, A True Test Of Statistical Significance? A Cautionary Note](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4111019/){:target='_blank_'}   |
-|    |       |     [The Significant Problem of P Values](https://www.scientificamerican.com/article/the-significant-problem-of-p-values/){:target='_blank_'}        |
-|    |       |      [P-values from the xkcd perspective](https://xkcd.com/882/){:target='_blank_'}       |
-
+| 2                | 16/8    | Chapter 1. An introduction to econometrics  [pdf](https://github.com/uit-sok-3020-h23/uit-sok-3020-h23.github.io/blob/main/Why%20Study%20Econometrics_.pdf){:target='_blank_'} [Quarto](https://raw.githubusercontent.com/uit-sok-3020-h23/uit-sok-3020-h23.github.io/main/chap1_why_study_econometrics.qmd){:target='_blank_'} [R_code](https://raw.githubusercontent.com/uit-sok-3020-h23/uit-sok-3020-h23.github.io/main/chap1_r_pres_annotated.r){:target='_blank_'}  |
+|3| | ||
+|4| | ||
+|5| | ||
 
 
 
