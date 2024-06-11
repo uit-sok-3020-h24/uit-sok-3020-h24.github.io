@@ -7,6 +7,10 @@ The lecture and seminar plan contain information about the timing, topics, cours
 - [Lecture and Seminar Plan](forelesningsplan.html){:target="blank"}
 
 The submission plan provides tasks, deadlines, and resources related to compulsory assignments.
+Innleveringer
+- [Submission Plan](innleveringsplan.html){:target="blank"}
+
+After completing the core content of the course, we will hold weekly seminar sessions, starting in week 38.
 - [Seminarplan](seminarplan.html){:target="blank"}
 
 
