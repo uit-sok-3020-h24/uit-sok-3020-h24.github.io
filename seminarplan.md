@@ -1,13 +1,22 @@
 {% include navbar.html %}{% include top-box.html %}
-# SOK-xxxx Kurs    
+# SOK-3020   
 
-## Seminarplan   
+## Seminarplan  
 
-
+After completing the core content of the course, we will hold weekly seminar sessions, starting in week 38.
 
 |Uke | Seminarnr. | Tema                        |  Oppgaver og ressurser  |
 |----|------------|-----------------------------|-------------------------|
-| x  | x          | Tilbud og etterspørsel I    | kommer                  |
-| x  | x          | IS-LM                       | kommer                  |
-| x  | x          | R                           | kommer                  |
-| x  | x          | Python                      | kommer                  |
+| 38  |           |                            |                   |
+| 39  |           |                            |                   |
+| 39  |           |                            |                   |
+| 40  |           |                            |                   |
+| 41  |           |                            |                   |
+| 42  |           |                            |                   |
+| 43  |           |                            |                   |
+| 44  |           |                            |                   |
+| 46  |           |                            |                   |
+| 47  |           |                            |                   |
+| 48  |           |                            |                   |
+
+
