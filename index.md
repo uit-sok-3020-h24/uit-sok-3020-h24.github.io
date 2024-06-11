@@ -4,7 +4,7 @@
 
 The lecture and seminar plan contain information about the timing, topics, course instructor, as well as resources/tasks for each topic.  
 
-- [Lecture and Seminar Plan](forelesningsplan.html){:target="blank"}
+- [Lecture and Seminar Plan](forelesningsplan.md){:target="blank"}
 
 After completing the core content of the course, we will hold weekly seminar sessions, starting in week 38.
 - [Seminarplan](seminarplan.html){:target="blank"}
