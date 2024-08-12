@@ -1,0 +1,454 @@
+---
+title: "Intro to R for Econometrics"
+format:
+  revealjs: 
+    theme: dark
+editor: visual
+---
+
+## Econometric software provide one of two alternative methods for users
+
+-   using a command language (R, Python, Julia)\
+-   using a "point and click" approach (SPSS, STATA, SAS)
+
+## Avoid using point-and-click software in econometrics
+
+-   some find the command language complicated and choose to go with the point and click method
+-   replicating quantitative study findings is a necessary and desirable aspect of science
+-   [replication in economics](https://www.federalreserve.gov/econresdata/feds/2015/files/2015083pap.pdf)
+-   [About 40% of economics experiments fail replication survey](http://www.sciencemag.org/news/2016/03/about-40-economics-experiments-fail-replication-survey)
+-   [Replication, Replication](http://gking.harvard.edu/files/replication.pdf)
+-   [Why so much science research is flawed - and what to do about it](https://www.newscientist.com/article/mg23030690-500-why-so-much-science-research-is-flawed-and-what-to-do-about-it/)
+
+## Provide information for others to replicate your results
+
+-   'raw data' are likely transformed during the data analysis period
+-   this is kept track of in a command language
+-   difficult to achieve using a point-and-click method
+-   once learned, it saves a lot of time
+-   change an element of the program, compared to an entire mouse sequence with every change
+-   once written it is easy to communicate code to other researchers and co-authors
+-   save for "future self", studies and research (reuseable)
+
+## Flexibility
+
+-   point-and-click methods are usually limited to 'precanned' applications
+-   what to do if 'button' for needed analysis is not made?
+-   many procedures are available using syntax which are not possible using point-and-click alone
+-   a program language provides more options for data analysis and manipulation
+-   program languages usually work across various versions of the software
+
+## Introducing R
+
+-   R is a open source programming environment\
+-   R is a programming language/software
+-   allows for development of functions
+-   functions are distributed as packages/libraries
+-   any user can download and use packages to enhance functionality
+
+## R and packages
+
+-   R and most R packages are available for download from the Comprehensive R Archive Network (CRAN)
+-   Otherwise downloadable via github
+-   R comes with a number of basic data management, analysis, and graphical tools
+-   R's power and flexibility, lie in its array of packages, currently:
+
+```{r}
+#| echo: true
+local({r <- getOption("repos") 
+r["CRAN"] <- "http://cran.r-project.org" 
+       options(repos=r) })
+length(unique(rownames(available.packages())))
+```
+
+## Download and install R locally
+
+Find installation files for your OS at: <http://www.r-project.org>
+
+[**Download at CRAN**](https://cloud.r-project.org/)
+
+## Interacting with R using RStudio
+
+-   You can work directly in R, but most users prefer a graphical user interface (GUI)
+-   Use RStudio, an Integrated Development Environment (IDE) developed by [posit](http://www.posit.co) [**Download for local installation**](https://posit.co/download/rstudio-desktop/)
+-   Jupyter notebook using web-browser, use UiT username/password <https://jupyter.uit.no>
+
+## The following packages are very useful
+
+-   **mosaic** package for statistics and mathematics teaching utilities\
+-   *tidyverse* (includes e.g.)\
+    -- **dplyr** package for various data management tasks\
+    -- **tidyr** package for making tidy data\
+    -- **ggplot2** package for data visualization using the Grammar of Graphics\
+-   **broom** package takes output and turns it into tidy data frames
+-   **stargazer** package for formatted output
+
+## Installing packages
+
+To use packages in R, we must first install them using the *install.packages()* function, which downloads and installs the package
+
+```{r}
+#| echo: true
+#| eval: false
+install.packages("mosaic")
+```
+
+Note the use of: " " around the package name
+
+## Loading a package
+
+-   After installing (once)
+-   If you need a particular function in a package for your current R session, you must first load it into the R environment using the **library()** function
+
+```{r}
+#| echo: true
+library(mosaic)
+```
+
+Note that the " " are gone!
+
+## Install and load packages in RStudio
+
+RStudio has its own software panel with package management - install - library - update - search
+
+## R code
+
+-   R code can be entered into the command line (console) directly or saved to a script/snippet
+-   Commands are separated either by a ; or by a new line
+-   **R is case sensitive!**
+-   The \# character means "a comment", and is not executed
+
+## R session info
+
+R version and the attached packages used in the current session
+
+```{r}
+#| echo: true
+sessionInfo()
+```
+
+## Help
+
+-   Help is accessed by preceding the name of the function with ? (e.g. ?c)
+-   ??keyword searches R documentation for keyword (e.g. ??regression)
+-   use RStudio's help pane
+
+## Objects
+
+-   R stores both data and output from data analysis (as well as everything else) in objects
+-   Things are assigned to and stored in objects using the **\<-** operator
+-   A list of all objects in the current session can be obtained with `ls()`
+-   In RStudio, just look at the *Environment* panel
+
+## Example
+
+Assign the number 3 to a object called *a* using assignment "\<-"
+
+```{r}
+#| echo: true
+a <- 3
+a
+a+2
+```
+
+## Basic R function style
+
+-   *verb* is a function name (what we would like to do)
+-   it is enclosed with parenthesis inside the () all options are separated by commas
+
+```{r}
+#| echo: true
+#| eval: false
+verb(object, data = xxx , ...) # ... is options
+verb(y ~ x, data = xxx , ...) # ~ is function of
+verb(y ~ x | z, data = xxx , ...) # | is condition or given
+```
+
+## "Modern" R as in piping
+
+```{r}
+#| echo: true
+#| eval: false
+object %>% verb(object, data = , ...) # %>% is then
+object |> verb(object, data = , ...) #  |> is native pipe operator
+```
+
+## What do you want R to do? (verb)
+
+-   This determines the R function to use
+-   What must R know to do that?
+-   This determines the inputs to the function
+-   Must identify the variables and data frame
+
+## Data in packages
+
+<https://vincentarelbundock.github.io/Rdatasets/datasets.html>
+
+## Wage data
+
+-   **wage** : gross hourly wage rate in euro
+-   **educ** : education level from 1 \[low\] to 5 \[high\]
+-   **exper** : years of experience
+
+```{r}
+#| echo: true
+library(tidyverse)
+library(Ecdat)
+data("Bwages")
+head(Bwages)
+```
+
+## Scatterplot 1
+
+```{r}
+#| echo: true
+Bwages %>% 
+  ggplot(aes(x = educ, y = wage)) +
+  geom_point() + 
+  geom_smooth(method = "lm", se = FALSE, color = "red") +
+  theme_minimal()
+```
+
+## Unconditional regression 1
+
+```{r}
+#| echo: true
+lm(wage ~ educ, data = Bwages)
+```
+
+## Scatterplot 2
+
+```{r}
+#| echo: true
+Bwages %>% 
+  ggplot(aes(x = exper, y = wage)) +
+  geom_point() + 
+  geom_smooth(method = "lm", se = FALSE, color = "blue") +
+  theme_minimal() 
+```
+
+## Unconditional regression 2
+
+```{r}
+#| echo: true
+lm(wage ~ exper, data = Bwages)
+```
+
+## Scatterplot 3
+
+```{r}
+#| echo: true
+Bwages %>%
+  ggplot(aes(x = exper, y = wage, color = as.factor(educ))) + 
+  geom_point() + 
+  geom_smooth(method = "lm", se = FALSE) + 
+  labs(color = "Educ Level") +
+  theme_minimal() + 
+  ggtitle("Scatter plot of wage vs. experience conditioned on education level")
+```
+
+## Conditional vs unconditional mean
+
+```{r}
+#| echo: true
+mean(~wage, data=Bwages)
+mean(~wage | educ, data = Bwages)
+mean(wage ~ educ, data = Bwages)
+```
+
+## Conditional regression 3
+
+```{r}
+#| echo: true
+library(broom)
+
+results <- Bwages %>%
+  nest_by(educ) %>%
+  mutate(model = list(lm(wage ~ exper, data = data)),
+         tidied = list(tidy(model))) %>%
+  select(-data, -model) %>%
+  unnest(cols = tidied)
+
+# Filter for intercept and slope and select relevant columns
+final_results <- results %>%
+  filter(term == "exper" | term == "(Intercept)") %>%
+  select(educ, term, estimate) %>% 
+  pivot_wider(names_from = term, values_from = estimate) %>% 
+  rename(Intercept = `(Intercept)`, Slope = exper)
+
+final_results
+```
+
+## Entering Data
+
+Enter data into a vector *x* using the combine function `c()`
+
+```{r}
+#| echo: true
+x <- c(1,2,4,6,7,9)
+x
+```
+
+## Read Data
+
+-   R has several packages and interfaces to read all sorts of data
+-   In RStudio, use the Environment - Import Dataset Tab
+
+## (tidy) Data files
+
+R works most easily with data having the following structure: - Each variable forms a column - Each observation forms a row - Each type of observational unit forms a table (matrix)
+
+<https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html>
+
+## R can also retrieve files over the internet
+
+Data definition file: <http://www.principlesofeconometrics.com/poe5/data/def/food.def>
+
+```{r}
+#| echo: true
+load(url("http://www.principlesofeconometrics.com/poe5/data/rdata/food.rdata"))
+head(food)
+```
+
+## Structure of objects
+
+```{r}
+#| echo: true
+str(a)
+str(food)
+```
+
+## Viewing Data
+
+R has several ways to look at a dataset at a glance
+
+```{r}
+#| echo: true
+head(food, 2)
+tail(food, 2)
+```
+
+## Variable names
+
+```{r}
+#| echo: true
+names(food)
+names(food) <- c("y","x")
+names(food)
+```
+
+## Data frame indexing
+
+-   individual rows, columns, and cells in a data frame can be accessed through many methods of indexing
+-   we most commonly use **object\[row,column\]** notation
+
+```{r}
+#| echo: true
+head(food, 3) # first 3 rows
+food[2,1] # single cell value, 2nd row, 1st column
+```
+
+## More variable indexing
+
+We can also access variables directly by using their names, either with **object\[ , "variable"\]** notation or **object\$variable** notation
+
+get first 7 rows of variable **x** using two methods
+
+```{r}
+#| echo: true
+food[1:7, "x"]
+food$x[1:7]
+```
+
+## Combing values into a vector
+
+The `c()` function is widely used to combine values of common type together to form a vector
+
+Another example, it can be used to access non-sequential rows and columns from a data frame.
+
+```{r}
+#| echo: true
+# combine rows 1, 3, 5 and 7-10 for column 1
+food[c(1,3,5,7:10), 1]
+```
+
+## Variable Names
+
+Change one specific variable name, use indexing
+
+```{r}
+#| echo: true
+names(food)[2] <- "var2"
+names(food)
+names(food) <- c("food_exp","income")
+names(food)
+```
+
+Avoid using special characters in variable names!
+
+## Working directory
+
+```{r}
+getwd()
+```
+
+```{r}
+#| echo: true
+#| eval: false
+setwd("C:/data") # on laptop (local)
+```
+
+use `dir()` to list files in directory
+
+## Saving Data
+
+Save the data frame **df** in the current working directory as the file *data.rds*:
+
+```{r}
+#| echo: true
+#| eval: false
+saveRDS(df, file="data.rds")
+```
+
+Then load it with:
+
+```{r}
+#| echo: true
+#| eval: false
+df <- readRDS("data.rds")
+```
+
+Note that the data object now gets its original name `df`
+
+## Numerical Summaries
+
+```{r}
+#| echo: true
+summary(food)
+```
+
+## Standard Normal probabilities
+
+A random variable $X$ is distributed normally as: $X \sim N(500,100^{2})$. Find $P(450 \leq X \leq 700)$:
+
+```{r}
+#| echo: true
+xpnorm(c(450, 700), mean=500, sd=100)
+```
+
+Note that this functions require that you have loaded the `mosaic` package first.
+
+## Regression model (p. 65 in POE5)
+
+```{r, results='asis'}
+#| echo: true
+library(stargazer)
+fit <- lm(food_exp~income, data=food)
+stargazer(fit, type = "html", style = "aer",
+          title="Output formatted as American Economic Review")
+```
+
+## Getting Help
+
+-   Use Google: *r ... and what you would like to do*
+-   gpt4 is an excellent coding assistant + all other LLM's
