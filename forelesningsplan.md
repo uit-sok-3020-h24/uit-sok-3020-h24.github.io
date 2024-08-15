@@ -21,7 +21,8 @@
 | 1  |   15/8 | Introduction to R|
 |    |       |   Download and [install R (first) then RStudio](https://posit.co/download/rstudio-desktop/){:target='_blank_'} |
 |    |       |  [RStudio IDE :: Cheatsheet](https://rstudio.github.io/cheatsheets/html/rstudio-ide.html){:target='_blank_'}   |
-|    |       |  [Data files from Principles of Econometrics](https://www.principlesofeconometrics.com/poe5/poe5data.html){:target='blank'}                     |
+|    |       |  [Data files from Principles of Econometrics](https://www.principlesofeconometrics.com/poe5/poe5data.html){:target='blank'}       |
+|   |       |  [my first R file](https://raw.githubusercontent.com/uit-sok-3020-h24/uit-sok-3020-h24.github.io/main/my%20first%20r%20file.R){:target='_blank_'}
 |   2 | 16/8    |  [Intro to R for Econometrics](https://raw.githubusercontent.com/uit-sok-3020-h24/uit-sok-3020-h24.github.io/main/intro%20to%20R%20for%20econometrics.qmd){:target='_blank_'} |
 | | | Browse the paper "Econometric Computing with 'R'" (in Files in Canvas) |
 |  |  | Relating to our wages example in class, there is a [report out from SSB](https://www.ssb.no/inntekt-og-forbruk/inntekt-og-formue/artikler/forskjeller-i-livslopsinntekt-mellom-utdanningsgrupper/_/attachment/inline/fbc61677-a679-4edd-93d8-c6095b866d0d:138a258371f5d983314e8175b97bb5ed5adc04e3/RAPP2023-26.pdf){:target='_blank_'} that looks at lifetime income in different professions (in Norwegian) |
