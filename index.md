@@ -31,7 +31,7 @@ Textbook: [Principles of Econometrics](https://principlesofeconometrics.com/poe5
 
 By R. Carter Hill, William E. Griffiths and Guay C. Lim. POE5 is an introductory book for students in economics and finance, as well as students in accounting, agricultural economics, marketing, public policy, sociology, law and political science. It assumes that students have a formal background with courses in the principles of economics/microeconomics, and elementary mathematics and statistics.
 
-Curriculum: The first eight chapters of the book.
+Curriculum: The first eight chapters of the book and the appendicies.
 
 ## Announcements
 Announcements and messages are posted in Canvas.
