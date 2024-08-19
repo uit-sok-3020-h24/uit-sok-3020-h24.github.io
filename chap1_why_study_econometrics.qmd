@@ -1,0 +1,88 @@
+---
+title: "Why Study Econometrics?"
+format:
+  revealjs: 
+    theme: dark
+editor: visual
+---
+
+## Econometrics gives you the opportunity to claim:
+
+-   I can predict the sales of our product if we lower our price by \$1 per unit.
+-   I can statistically test whether advertising increase sales.
+-   Product **B** is our main competitor.
+-   I can predict the sales of our product if we lower our price by \$1 per unit and our competitor **B** lowers their price by 50 cents.
+
+## What is Econometrics?
+
+-   Econometrics is the unification of economic theory, statistics and mathematics. (R Frish: <http://goo.gl/E4qtn6>)
+-   Econometrics bridges the gap between being a "student of economics" and the "practice of economics" as an "applied economist."
+
+## Econometrics answer "how much" type questions, e.g.:
+
+-   What is the relationship between advertising and sales?
+-   How much advertising space should my company purchase?
+-   How should I optimal allocate a limited advertising budget between television and internet spending?
+
+## The Econometric Model (1)
+
+An econometric model consists of a systematic part and unpredictable component $e$ that we call a random error.
+
+$$ 1) \;\; Q=f(P_{1},P_{2},INC) $$ $$ 2) \;\; Q=f(P_{1},P_{2},INC)+e $$ $$ 3) \;\; Q(P_{1},P_{2},INC)=\beta_{1}+\beta_{2}P_{1}+\beta_{3}P_{2}+\beta_{4}INC $$ $$ 4) \;\; Q=\beta_{1}+\beta_{2}P_{1}+\beta_{3}P_{2}+\beta_{4}INC+e $$ $$ 5) \;\; E(Q|P_{1},P_{2},INC)=\beta_{1}+\beta_{2}P_{1}+\beta_{3}P_{2}+\beta_{4}INC$$
+
+where $Q=$ quantity demanded, $P_{1}=$ own-price, $P_{2}=$ substitute-price, $INC=$ income and $f$ is a general functional form.
+
+## The Econometric Model (2)
+
+-   The coefficients $\beta_{1},\beta_{2},\beta_{3},\beta_{4}$, are unknown parameters of the model that we estimate using economic data and a specified statistical algorithm.
+-   The functional form represents a hypothesis about the relationship between the variables.
+-   In any particular problem, one challenge is to determine a functional form that is compatible with economic theory and the data.
+-   The random component represents a "noise" component, which obscures our understanding of the relationship among variables, and which we represent using *e* - a random error.
+
+## Use the econometric model for Statistical Inference
+
+-   Estimate economic parameters, such as marginal effects and elasticities.
+-   Predict economic outcomes.
+-   Test economic hypotheses, e.g., is television advertising better than internet ads for increasing sales?
+
+## What type of real processes generate data?
+
+-   Economists and other social scientists work in a complex world in which data on variables are "observed" and rarely obtained from controlled experiments.
+-   This makes the task of learning about economic relationships, and testing economic theories from data very difficult.
+
+## Data may be collected at various levels of aggregation:
+
+-   Micro (individual)
+-   Macro (aggregated).
+-   Data may also represent a flow or a stock:\
+    -- Flow: measured over a period of time.\
+    -- Stock: measured at a particular point in time.
+-   Data may be quantitative or qualitative:\
+    -- Quantitative: expressed as numbers.\
+    -- Qualitative: expressed as an "either/or" label.
+
+## Time-series Data
+
+-   "Time-series" is data collected over discrete intervals of time.
+-   The key feature of time-series data is that the same economic quantity is recorded at a regular time interval.
+-   E.g. daily data on the exchange rate between USD and NOK
+
+## Importance of Tidy Data in Data Science/Econometrics
+
+1.  **Consistency**: Provides a standardized data structure.
+2.  **Efficiency**: Streamlines analysis and visualization tools.
+3.  **Data Wrangling**: Simplifies data transformations and manipulations.
+4.  **Reproducibility**: Ensures research can be easily repeated.
+5.  **Error Detection**: Standard structure makes anomalies evident.
+6.  **Joining Datasets**: Easier combination of multiple data sources.
+7.  **Communication**: Enhances clarity for collaborators and stakeholders.
+8.  **Exploration**: Facilitates effective exploratory data analysis.
+
+## The Research Process
+
+-   Use economic theory to think about the problem (<http://freakonomics.com/>).
+-   Develop a working economic model leading to an econometric model.
+-   Obtain sample data and choose a desirable method of statistical analysis based on initial assumptions and an understanding of how the data were collected.
+-   Estimate the unknown parameters with the help of a statistical software package, make predictions, and test hypotheses.
+-   Perform model diagnostics to check the validity of model assumptions.
+-   Analyze, evaluate and discuss the economic consequences and the implications of the empirical results.
