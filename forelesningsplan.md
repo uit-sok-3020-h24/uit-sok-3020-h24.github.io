@@ -33,7 +33,9 @@
 |    |     |   [R code Chapter 2](https://raw.githubusercontent.com/uit-sok-3020-h24/uit-sok-3020-h24.github.io/main/R_code_Chapter_2.R){:target='_blank_'}  |
 |    |     |   ["old" video (Part 1)](https://uit.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=8cafa645-c30b-465a-a992-aee500c4723a){:target='_blank_'}     |
 |    |     |   ["old" video (Part 2)](https://uit.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=fe2607de-2c56-492f-87bd-aee500c57671){:target='_blank_'}  |
-| | | |
+| 7 | 28/8 | Continue on Chapter 2 |
+| 8 | 28/8 | |
+| 9 | 3/9  | |
 | | | |
 
 
