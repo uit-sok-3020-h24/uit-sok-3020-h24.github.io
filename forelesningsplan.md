@@ -34,7 +34,10 @@
 |    |     |   ["old" video (Part 1)](https://uit.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=8cafa645-c30b-465a-a992-aee500c4723a){:target='_blank_'}     |
 |    |     |   ["old" video (Part 2)](https://uit.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=fe2607de-2c56-492f-87bd-aee500c57671){:target='_blank_'}  |
 | 7 | 28/8 | Continue on Chapter 2 |
-| 8 | 28/8 | |
+| 8 | 28/8 | Chapter 3 - Interval Estimation and Hypothesis Testing   |
+|    |      |  [R code for Chapter 3](https://raw.githubusercontent.com/uit-sok-3020-h24/uit-sok-3020-h24.github.io/main/Chapter_3.R){:target='_blank_'}    |
+|    |      |   ["old" video (Part 1)](https://uit.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=e319d74e-c548-4de3-b6f5-aee500c4d176){:target='_blank_'}     |
+|    |      |   ["old" video (Part 2)](https://uit.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=4d290fdc-36ae-4d2d-8495-aee500c57827){:target='_blank_'}     |
 | 9 | 3/9  | |
 | | | |
 
