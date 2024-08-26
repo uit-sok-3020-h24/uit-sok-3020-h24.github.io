@@ -29,6 +29,10 @@
 |    |  | Relating to our wages example in class, there is a [report out from SSB](https://www.ssb.no/inntekt-og-forbruk/inntekt-og-formue/artikler/forskjeller-i-livslopsinntekt-mellom-utdanningsgrupper/_/attachment/inline/fbc61677-a679-4edd-93d8-c6095b866d0d:138a258371f5d983314e8175b97bb5ed5adc04e3/RAPP2023-26.pdf){:target='_blank_'} that looks at lifetime income in different professions (in Norwegian) |
 | 4  | 19/8  | Appendix A [Mathematical Tools in R](https://raw.githubusercontent.com/uit-sok-3020-h24/uit-sok-3020-h24.github.io/main/Appendix_A_annotated.R){:target='_blank_'} ["old" video](https://uit.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=e39c6666f51844efa636aee500c51b7a){:target='_blank_'}    |
 | 5  | 21/8 | Chapter 1. An introduction to econometrics  [pdf in Canvas/Files] [Quarto](https://raw.githubusercontent.com/uit-sok-3020-h24/uit-sok-3020-h24.github.io/main/chap1_why_study_econometrics.qmd){:target='_blank_'} |
+| 6  | 26/8 |  Chapter 2 - The Simple Linear Regression Model |
+|    |     |   [R code for Chapter 2](https://raw.githubusercontent.com/uit-sok-3020-h23/uit-sok-3020-h23.github.io/main/R%20code%20Chapter%202.R){:target='_blank_'}  |
+|    |     |   ["old" video (Part 1)](https://uit.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=8cafa645-c30b-465a-a992-aee500c4723a){:target='_blank_'}     |
+|    |     |   ["old" video (Part 2)](https://uit.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=fe2607de-2c56-492f-87bd-aee500c57671){:target='_blank_'}  |
 | | | |
 | | | |
 
