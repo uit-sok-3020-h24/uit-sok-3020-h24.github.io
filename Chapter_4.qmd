@@ -1,0 +1,933 @@
+---
+title: "Chapter 4 - Prediction, Goodness-of-Fit, and Modeling Issues"
+format: html
+editor: visual
+---
+
+R. Carter Hill, William E. Griffiths and Guay C. Lim,  
+Principles of Econometrics, Fifth Edition, Wiley, 2018.
+
+Clear existing objects in the workspace
+```{r}
+rm(list=ls())
+```
+
+Display the current working directory and its contents
+```{r}
+getwd()
+#dir()
+```
+
+Load necessary libraries
+```{r}
+library(mosaic)
+library(rockchalk) 
+library(stargazer)
+```
+
+Data set on food expenditure and weekly income from a random sample of 40 households.
+Data definition file: <http://www.principlesofeconometrics.com/poe5/data/def/food.def>
+```{r}
+load(url("http://www.principlesofeconometrics.com/poe5/data/rdata/food.rdata"))
+```
+
+View the structure of the loaded dataset
+```{r}
+glimpse(food)
+```
+
+The `rockchalk:summarize` function reports some descriptive statistics
+```{r}
+summarize(food)
+```
+
+Estimate a simple linear regression model with food expenditure as the dependent variable and income as the independent variable
+```{r}
+fit <- lm(food_exp ~ income, data=food)
+```
+
+Display the names of the components of the regression model object
+```{r}
+names(fit)
+```
+
+Display the estimated regression coefficients
+```{r}
+fit
+coef(summary(fit))
+```
+
+Plot the observed data and the fitted regression line using base R
+```{r}
+plot(food_exp~income, data=food) 
+abline(fit)
+```
+
+Plot the observed data and the fitted regression line using the mosaic package
+```{r}
+plotModel(fit)
+```
+
+Plot the observed data and the fitted regression line using ggplot2
+```{r}
+food %>% ggplot(aes(x=income, y=food_exp)) + geom_point() +
+  geom_smooth(method = lm, se = FALSE, color="red") +
+  theme_bw()
+```
+
+Plot the observed data using the mosaic package's gf_point function
+```{r}
+gf_point(food_exp ~ income, data = food) %>% 
+  gf_labs(title = "My plot", caption = "") +
+  theme_bw()
+```
+
+Try `mplot()` use "cog" wheel.
+```{r eval=FALSE, include=TRUE}
+mplot(food)
+```
+
+Calculate the predicted value of food expenditure for a given income using the estimated regression model
+The predicted value: E(food_exp|income)
+
+```{r}
+f <- makeFun(fit)
+```
+
+Predicted value for an income of 20 (i.e., $\$$ 2000)
+E(food_exp|income=20)
+```{r}
+f(20) 
+```
+
+Manually calculate the predicted value for an income of 20
+```{r}
+coef(fit)[1]+coef(fit)[2]*20
+```
+
+Calculate the predicted values of food expenditure for a range of income values
+```{r}
+f(1:40)
+```
+
+Calculate the predicted values of food expenditure for the observed income values in the dataset
+```{r}
+f(food$income)
+```
+
+Plot the observed data and the fitted regression line using the lattice package
+```{r}
+xyplot(food_exp~income, data=food)
+plotFun(f(income) ~ income, add=TRUE)
+```
+
+Example 4.1
+A prediction interval reports the interval estimate for an individual value of y (y0) for a particular value of x (x0).
+Calculate a 95% prediction interval for a household with an income of 20 (i.e., $\$$ 2000)
+```{r}
+f(20, interval='prediction')  # default 95% PI
+```
+
+Calculate a 90% prediction interval for the same household
+```{r}
+f(20, interval='prediction', level=0.9) # 90% PI
+```
+
+Plot the fitted regression line with the 95% prediction interval
+```{r}
+plotSlopes(fit, plotx = "income", interval="prediction", col="red", opacity = 80)
+```
+
+A confidence interval reports the interval estimate for the mean value of y for a given value of x, e.g.,
+Calculate a 95% confidence interval for the mean food expenditure for households with an income of 20 (i.e., $\$$ 2000)
+```{r}
+f(20, interval='confidence') 
+```
+gives us a 95% confidence interval for all households,
+i.e., the population mean of food expenditure with (20*100) 2000 $\$$ in income.
+
+Plot the fitted regression line with the 95% confidence interval
+```{r}
+plotSlopes(fit, plotx = "income", interval="confidence", col="green", opacity = 80)
+```
+
+Plot both the 95% prediction interval and the 95% confidence interval
+```{r}
+library(HH)
+ci.plot(fit)
+```
+
+or:
+```{r}
+xyplot(food_exp~income, data=food, panel=panel.lmbands, cex=1.1)
+ladd(panel.abline(v=20, col="red", lwd=3, alpha=.4))
+```
+
+Q: In the 95% PI, how many observations are outside the interval?
+
+Calculate various measures of goodness-of-fit for the estimated regression model
+The models subsequent sums of squares and ANOVA table:
+```{r}
+anova(fit)
+```
+
+Sums of squared residuals, SSE
+```{r}
+deviance(fit)
+```
+
+The variance in the model 
+```{r}
+deviance(fit)/fit$df.residual
+```
+
+Residual standard error
+```{r}
+sqrt(deviance(fit)/fit$df.residual)
+```
+
+Calculate the total sum of squares (SST), the regression sum of squares (SSR), and the error sum of squares (SSE)
+```{r}
+sum((food$food_exp - mean(food$food_exp))^2) # SST
+sum((predict(fit) - mean(food$food_exp))^2)  # SSR
+deviance(fit) # SSE
+sum((food$food_exp - predict(fit))^2) # SSE
+```
+
+Save them:
+```{r}
+SST <- sum((food$food_exp - mean(food$food_exp))^2)
+SSR <- sum((predict(fit) - mean(food$food_exp))^2)
+SSE <- deviance(fit) 
+SST ; SSR+SSE
+```
+
+Calculate the coefficient of determination (R-squared, or $R^{2}$) for the estimated regression model:
+```{r}
+SSR/SST
+```
+
+or
+```{r}
+1-SSE/SST
+```
+
+### Example 4.2
+
+Calculate the correlation coefficient between food expenditure and income, and verify that its square is equal to R-squared in a simple regression model
+```{r}
+cor(food)
+r <- cov(food$food_exp,food$income)/(sd(food$food_exp)*sd(food$income)) ; r
+```
+
+Correlation squared is equal to $R^{2}$ but only in a simple regression model
+```{r}
+r^2
+```
+
+## Example 4.3
+
+Display the estimated regression coefficients and their standard errors, t-values, and p-values
+```{r}
+summary(fit)
+stargazer(fit, type="text", intercept.bottom = FALSE)
+```
+
+### Modeling issues: Explore the effect of scaling the data on the estimated regression coefficients
+
+```
+food_exp : weekly food expenditure in $
+income  : weekly income in $100
+```
+
+units: $\$$ ~ 100$\$$
+```{r}
+fit <- lm(food_exp~income, data=food)
+fit
+```
+
+Generate a new income variable in dollars
+```{r}
+food <- food %>% mutate(income.dollars=income*100)
+head(food)
+```
+
+```{r}
+fit2 <- lm(food_exp~income.dollars, data=food) 
+stargazer(fit, fit2, type="text", intercept.bottom=FALSE)
+```
+
+same as:
+```{r}
+lm(food_exp~I(income*100), data=food)
+```
+
+Generate a new variable for food expenditure in units of $100
+```{r}
+food <- food %>% mutate(food_exp.100dollars=food_exp/100)
+```
+
+```{r}
+food <- food %>% dplyr::select(food_exp, food_exp.100dollars, income, income.dollars)
+head(food)
+```
+
+units: 100$\$$ ~ 100$\$$
+```{r}
+fit3 <- lm(food_exp.100dollars~income, data=food)
+stargazer(fit, fit2, fit3, type="text", intercept.bottom=FALSE)
+```
+
+same as:
+```{r}
+lm(I(food_exp/100)~income, data=food)
+```
+
+Estimate a regression model with food expenditure in units of $\$$ 100 as the dependent variable and income in dollars as the independent variable
+
+units: 100 $\$$ ~ 1 $\$$
+```{r}
+fit4 <- lm(food_exp.100dollars~income.dollars, data=food)
+```
+
+```{r}
+stargazer(fit, fit2, fit3, fit4, type="text", intercept.bottom=FALSE)
+```
+
+### Relationship for changing the scale of $x$
+
+In the linear regression model $y=\beta_1+\beta_2 x+e$, suppose we change the units of measurement of the explanatory variable $x$ by dividing it by a constant $c$. In order to keep intact the equality of the left- and right-hand sides, the coefficient of $x$ must be multiplied by $c$. That is, $y=\beta_1+\beta_2 x+e=\beta_1+\left(c \beta_2\right)(x / c)+e=\beta_1+\beta_2^* x^*+e$, where $\beta_2^*=c \beta_2$ and $x^*=x / c$.
+
+Calculate the slope of the estimated regression line for different units of the dependent and independent variables:
+
+slope in fit: $\$$ vs 100$\$$
+```{r}
+coef(fit)[2]
+```
+
+slope in fit: in $\$$ vs $\$$, same as dividing coef by 100
+```{r}
+coef(fit)[2]/100
+```
+
+Here we changed the variable, so slope in fit2: in $\$$ vs $\$$
+```{r}
+coef(fit2)[2]
+```
+
+### Choosing a functional form
+
+Plot various functional forms for the relationship between the dependent and independent variables
+Some plots like Figure 4.5
+```{r}
+plotFun(0.5+0.3*x^2 ~ x, x.lim=range(-5,5), main="Quadratic equations")
+plotFun(3-0.3*x^2 ~ x, add=TRUE , col="red")
+```
+
+```{r}
+plotFun(0.5+0.3*x^3 ~ x, x.lim=range(-5,5), main="Cubic equations")
+plotFun(3-0.3*x^3 ~ x, add=TRUE , col="red")
+```
+
+```{r}
+plotFun(exp(2+1.2*log(x)) ~ x, x.lim=range(0,4), main="Log-log equations")
+plotFun(exp(2+0.9*log(x)) ~ x, add=TRUE , col="red")
+```
+
+```{r}
+plotFun(exp(2-1.2*log(x)) ~ x, x.lim=range(0,4), main="Log-log equations")
+plotFun(exp(2-1*log(x)) ~ x, add=TRUE , col="red")
+plotFun(exp(2-0.8*log(x)) ~ x, add=TRUE , col="green")
+```
+
+```{r}
+plotFun(exp(3+1.2*x) ~ x, x.lim=range(0,3), main="Log-lin equations")
+plotFun(exp(3-0.9*x) ~ x, add=TRUE , col="red")
+```
+
+```{r}
+plotFun(2+1.2*log(x) ~ x, x.lim=range(0,4), main="Lin-log equations")
+plotFun(2-1*log(x) ~ x, add=TRUE , col="red")
+```
+
+### Example 4.4 Lin-Log Food Expenditure Model
+
+Estimate a linear-log model with food expenditure as the dependent variable and the natural logarithm of income as the independent variable
+```{r}
+fit5 <- lm(food_exp~log(income), data=food)
+coef(summary(fit5))
+```
+
+A 1% change in x leads (approximately) to a b2/100 unit change in y
+```{r}
+coef(fit5)[2]/100 
+```
+
+```{r}
+plotModel(fit5)
+```
+
+```{r}
+plotSlopes(fit, plotx = "income", interval="confidence", col="green", opacity = 80)
+```
+
+```{r}
+plotCurves(fit5, plotx = "income", interval="confidence", col="red", opacity = 80, ylim=c(0,600))
+```
+
+```{r}
+food %>% ggplot(aes(x=income, y=food_exp)) + geom_point() +
+  stat_smooth(method=lm, formula = y ~ log(x), se=TRUE, col="red")
+```
+
+```{r}
+food %>% ggplot(aes(x=income, y=food_exp)) + geom_point() +
+  stat_smooth(method=lm, formula = y ~ log(x), se=TRUE, col="red") +
+  stat_smooth(method=lm, se=TRUE, col="green")
+```
+
+```{r}
+summary(fit)
+summary(fit5)
+```
+
+Compare the sum of squared residuals (SSE) between the two estimated regression models
+```{r}
+anova(fit,fit5)
+```
+
+Calculate the slope of the estimated regression line in the linear-log model
+```{r}
+g <- makeFun(fit5) # E(y|x)
+dg <- function(x) {coef(fit5)[2]/x}
+```
+
+Diminishing marginal effect
+```{r}
+plotFun(dg(x) ~ x, col="red", xlim = c(0,30))
+```
+
+Calculate the expected value of food expenditure for households with incomes of $\$$ 1000 and $\$$ 2000, respectively
+E(food_exp|income=10) = household with 10, i.e., 10*100=1000 $\$$ income
+```{r}
+g(10) 
+```
+
+Marginal spending at a 1000 $\$$ more in income
+```{r}
+dg(10)
+```
+
+E(food_exp|income=10) = household with 20, i.e., 20*100=2000 $\$$ income
+```{r}
+g(20) 
+```
+
+marginal spending at a 100 $\$$ more in income
+```{r}
+dg(20)
+```
+
+Calculate the percentage change in food expenditure for a 1% increase in income.  
+Formula on p. 164 before Example 4.4., $\Delta y \cong \frac{\beta _{2}}{100}(\%\Delta x)$ :  
+
+```{r}
+percent.dg <- function(x) {x*coef(fit5)[2]/100}
+```
+
+A 1% increase in income will increase food expenditure by `r percent.dg(1)` dollars
+```{r}
+percent.dg(1)
+```
+
+A 10% increase in income will increase food expenditure by `r percent.dg(10)` dollars 
+```{r}
+percent.dg(10) 
+```
+
+Plot the residuals from the estimated linear-log regression model
+```{r}
+par(mfrow=c(2,2))
+plot(fit5)
+par(mfrow=c(1,1))
+```
+
+### Fig 4.8
+```{r}
+plot(food$income, resid(fit5))
+```
+
+### Example 4.6 Testing normality
+
+Test the normality of the residuals from the estimated regression model
+<http://www.rdocumentation.org/packages/DescTools/functions/JarqueBeraTest>
+
+```{r}
+library(tseries)
+```
+
+H0: Residuals are Normal
+```{r}
+jarque.bera.test(resid(fit))
+```
+
+```{r}
+moments::jarque.test(resid(fit))
+```
+
+critical value
+```{r}
+qchisq(0.95,2)
+```
+
+Conduct a global test of the assumptions of the regression model
+```{r}
+library(gvlma)
+fit <- lm(food_exp~income, data=food)
+gvmodel <- gvlma(fit) 
+summary(gvmodel)
+```
+
+Identify influential observations in the estimated regression model (mosaic)
+```{r}
+mplot(fit)
+```
+
+### p. 170
+```{r}
+car::dfbetaPlots(fit) 
+```
+
+```{r}
+dfbeta(fit)
+dffits(fit)
+```
+
+```{r}
+library(broom)
+augment(fit)
+```
+
+### Estimate polynomial regression models
+```{r}
+rm(list=ls())
+```
+
+<http://www.principlesofeconometrics.com/poe5/data/def/wa_wheat.def>
+
+```{r}
+load(url("http://www.principlesofeconometrics.com/poe5/data/rdata/wa_wheat.rdata"))
+```
+
+New name on data, delete old dataframe
+```{r}
+wheat <- wa_wheat
+rm(wa_wheat)
+```
+
+### Yield over time - linear model
+
+```{r}
+fit <- lm(greenough~time, data=wheat)
+```
+
+```{r}
+xyplot(greenough~time, data=wheat)
+f <- makeFun(fit)
+plotFun(f(time) ~ time, add=TRUE, col="red")
+```
+
+```{r}
+plotModel(fit) + ggtitle("Regression model for Greenough")
+```
+
+## ---------------- Slight departure -----------
+
+Estimate regression models for multiple groups simultaneously
+Dealing with 4-groups at the same time
+
+```{r}
+library(tidyr)
+
+long <- wheat %>% pivot_longer(-time, names_to = "location", values_to = "yield")
+head(long)
+tail(long)
+```
+
+```{r}
+long %>% ggplot(aes(x=time, y=yield)) + geom_point() +
+  facet_wrap(~location) + theme_bw()
+```
+
+```{r}
+long %>% ggplot(aes(x=time, y=yield, color=location)) + geom_point() + theme_bw()
+```
+
+4 OLS models by group, broom package
+
+```{r}
+long %>% group_by(location) %>% do(tidy(lm(yield ~ time, data=.)))
+```
+
+Digression to Chapter 7, four regression models in one plot
+Plot the estimated regression lines for multiple groups simultaneously
+```{r}
+long %>% ggplot(aes(x=time, y=yield)) + geom_point()  + 
+  aes(colour=location)  + stat_smooth(method=lm, se=F) + 
+  theme(legend.position="bottom") + labs(title="Yield over time per location") + theme_bw()
+```
+
+```{r}
+mod <- lm(yield ~ time + factor(location) + time:factor(location), data = long)
+summary(mod)
+plotModel(mod) + theme_bw()
+```
+
+```{r}
+fit2 <- lm(yield ~ time * factor(location), data = long)
+summary(fit2)
+f2 <- makeFun(fit2)
+xyplot(yield ~ time, data = long)
+plotFun(f2(time, location = "northampton") ~ time, add = TRUE)
+plotFun(f2(time, location = "chapman") ~ time, add = TRUE, col="red")
+plotFun(f2(time, location = "mullewa") ~ time, add = TRUE, col="green")
+plotFun(f2(time, location = "greenough") ~ time, add = TRUE, col="black")
+```
+
+## ------------ Back to textbook again
+
+### Example 4.8: Displaying summary and residuals of the fit model
+
+```{r}
+summary(fit)
+```
+
+Estimate a polynomial regression model with a cubic term for time
+
+```{r}
+fit3 <- lm(greenough~I(time^3), data=wheat)
+summary(fit3)
+plot(wheat$time, resid(fit), col="blue")
+points(wheat$time, resid(fit3), col="green", pch=19)
+```
+
+### Digression to multiple regression, p 173
+
+Estimate a multiple regression model with linear, quadratic, and cubic terms for time
+
+```{r}
+fit4 <- lm(greenough~time+I(time^2)+I(time^3), data=wheat)
+summary(fit4)
+```
+
+```{r}
+plotCurves(fit4, plotx = "time")#, ylim=c(0,600))
+```
+
+```{r}
+plotModel(fit4) + theme_bw()
+```
+
+### Example 4.9 Estimate a log-linear growth model
+
+```{r}
+fit5 <- lm(log(greenough)~time, data=wheat)
+summary(fit5)
+```
+
+Plot the estimated regression line from the log-linear growth model
+This does not scale correctly with transformed y models
+
+```{r}
+wheat %>%
+  ggplot(aes(x=time, y=greenough)) + geom_point() +
+  geom_smooth(method="lm", formula=log(y) ~ x, se=FALSE, color="red")
+```
+
+```{r}
+plotCurves(fit5, plotx = "time")
+```
+  
+```{r eval=FALSE, include=TRUE}
+plotModel(fit5) # does not work either 
+```
+
+Create a function based on the fit5 model, this function uses the exp(y) to predict the dependent variable at levels.
+
+```{r}
+g <- makeFun(fit5)
+```
+
+Predict the expected yield given time=20.  
+E(yield|time=20)
+
+```{r}
+g(20) 
+```
+
+Plotting the data and the function g
+
+```{r}
+xyplot(greenough~time, data=wheat)
+plotFun(g(time) ~ time, col="red", add=TRUE)
+```
+
+```{r}
+wheat %>%
+  ggplot(aes(x=time, y=greenough)) + geom_point() +
+  stat_function(fun=g, aes(color="Function g(x)")) +   # Function plot
+  theme_bw()
+```
+
+Manually creating a function h based on the fit5 coefficients
+
+```{r}
+h <- function(x) {exp(coef(fit5)[1]+coef(fit5)[2]*x)}
+plot(wheat$time,wheat$greenough, col="aquamarine4", pch=19)
+curve(h, 0,50, lwd=2, col="darkgreen", main="Log-Linear Relationship",
+      xlab="Time", ylab="Yield", add = TRUE)
+```
+
+same as above with g()
+
+```{r}
+wheat %>% ggplot(aes(x=time, y=greenough)) + geom_point() +
+  stat_function(fun=h) + xlim(c(0,50)) + theme_bw()
+```
+
+### Example 4.10 - Wage Equation: Loading and exploring the wage dataset
+
+```{r}
+rm(list=ls())
+load(url("http://www.principlesofeconometrics.com/poe5/data/rdata/cps5_small.rdata"))
+head(cps5_small)
+
+cps5 <- cps5_small
+rm(cps5_small)
+```
+
+```{r}
+summary(cps5$wage)
+```
+
+### Histogram of wage
+
+```{r}
+cps5 %>% 
+  ggplot(aes(x=wage)) + geom_histogram(bins = 200)
+```
+
+
+### Histogram of log(wage)
+
+```{r}
+cps5 %>% 
+  ggplot(aes(x=log(wage))) + geom_histogram(bins = 200)
+```
+
+Estimating a model for log(wage) against education
+
+```{r}
+fit <- lm(log(wage)~educ, data=cps5)
+summary(fit)
+```
+
+Calculating sums of squared residuals, SSE
+
+```{r}
+deviance(fit)
+```
+
+Calculating the variance in the model, sigma squared 
+
+```{r}
+deviance(fit)/fit$df.residual
+s2 <- deviance(fit)/fit$df.residual
+```
+
+### The Log-Normal Distribution
+
+The log-normal distribution is a probability distribution of a random variable whose logarithm is normally distributed. It is particularly useful in modeling variables that are always positive and have a skewed distribution.
+
+Suppose $Y$ is a random variable that follows a normal distribution with mean $\mu$ and variance $\sigma^2$, i.e., $Y \sim N(\mu, \sigma^2)$. If we define another random variable $X$ such that:
+
+$$
+X = e^Y
+$$
+
+then $X$ is said to have a log-normal distribution. Other ways of writing this relationship is: $X=\operatorname{antilog}(Y)=\texttt{exp}(Y)$.  
+
+The Probability Density Function (PDF) of $X$ is given by:
+
+$$
+\begin{aligned}
+Prob(X) & =\frac{1}{X \sigma \sqrt{2 \pi}} \exp \left[-\frac{1}{2 \sigma^2}(\ln X-\mu)^2\right] & & \text{for } X>0 \\
+& =0 & & \text{for } X \leq 0
+\end{aligned}
+$$
+
+It's important to note that $X$ can only take on positive values. This is because the exponential function always returns positive values. Therefore, at $X=0$, the probability is zero.
+
+Key Properties:
+
+*Mode:* The peak of the distribution is located at $X=e^{\mu-\sigma^2}$.  
+*Median:* The middle value, where half the data falls below and half above, is at $X=e^\mu$.  
+*Moments:* The $j^{th}$ moment about the origin for the log-normal distribution is:  
+
+$$E[X^j]=m_j=e^{j \mu+1 / 2 j^2 \sigma^2} \quad \text{for } j=1,2, \ldots$$
+From this, we can derive:  
+*Mean:* $E(X)=m_1=e^{\mu+1 / 2 \sigma^2}$.    
+*Variance:* $Var(X)=m_2-m_1^2=(e^{\sigma^2}-1) e^{2 \mu+\sigma^2}$.  
+
+Predictions in the log-linear model, adjust for log-normal errors
+
+```{r}
+yn <- function(x) {exp(coef(fit)[1]+coef(fit)[2]*x)} # not corrected
+yc <- function(x) {exp(coef(fit)[1]+coef(fit)[2]*x+s2/2)} # corrected
+```
+
+```{r}
+cps5 %>%
+  ggplot(aes(x=educ, y=wage)) + geom_point() +
+  stat_function(fun=yn, color="blue") +
+  stat_function(fun=yc, color="red") +
+  ggtitle("Corrected and Uncorrected predictions from Log-Linear Model") +
+  annotate("text", x = 1.6, y = 80, label = "Uncorrected Model", color = "blue") +  
+  annotate("text", x = 1.6, y = 75, label = "Corrected Model", color = "red") + 
+  theme_bw() + ylim(-12,100)
+```
+
+Base R
+
+```{r}
+plot(cps5$educ,cps5$wage, main="Not Corrected and Corrected predictions from Log-Linear Model", ylim=c(-12,100))
+curve(yn, 0,40, lwd=3, add=TRUE, col="blue")
+curve(yc, 0,40, lwd=3, col="red", add=TRUE)
+legend("topleft", c("standard prediction","corrected prediction"),
+        col=c("blue","red"), inset = 0.05, lty=1, cex=1)
+```
+
+Calculating a generalized $R^{2}$ measure
+
+```{r}
+cor(cps5$wage,yc(cps5$educ))
+cor(cps5$wage,yc(cps5$educ))^2
+summary(fit)$r.squared
+```
+
+Prediction intervals in a log-linear model
+
+```{r}
+f <- makeFun(fit)
+```
+
+Expected value in levels
+
+```{r}
+f(12, interval='prediction') 
+```
+
+Adjusting for the standard error correction in the mosaic::makeFun function
+
+```{r}
+f(12)
+yn(12)
+yc(12)
+f(12)*exp(s2/2) # must adjust
+```
+
+Plotting the 95% prediction interval for wage
+
+```{r}
+predint <- f(0:22, interval='prediction')*exp(s2/2)
+class(predint)
+str(predint)
+```
+
+Fig 4.14, adjusted prediction interval, note in our textbook it is unadjusted
+
+```{r}
+plot(cps5$educ,cps5$wage, main="Figure 4.14 The 95% prediction interval for wage")
+lines(0:22,predint[,2], lty=2)
+lines(0:22,predint[,3], lty=2)
+lines(0:22,predint[,1], col="blue", lwd=2) 
+```
+
+Log-Log model, Example 4.13: Loading and exploring the poultry demand dataset
+
+```{r}
+rm(list=ls())
+load(url("http://www.principlesofeconometrics.com/poe5/data/rdata/newbroiler.rdata"))
+head(newbroiler)
+```
+
+Estimating a log-log model for poultry demand
+
+```{r}
+fit <- lm(log(q)~log(p), data=newbroiler)
+summary(fit)
+```
+
+Calculating the variance in the model, sigma squared 
+
+```{r}
+s2 <- deviance(fit)/fit$df.residual ; s2
+```
+
+Corrected predicted value in levels for the log-log model
+
+```{r}
+f <- makeFun(fit)
+yc <- function(x) {exp(coef(fit)[1]+coef(fit)[2]*log(x)+s2/2)}
+ycA <- function(x) {f(x)*exp(s2/2)} # alternative
+#ycA <- function(x) {exp(coef(fit)[1]+coef(fit)[2]*log(x))*exp(s2/2)} # alternative
+```
+
+Plotting the poultry demand in a log-log model
+A log-log model is a non-linear line in lin-lin world
+
+```{r}
+xyplot(q~p, data=newbroiler, main="Poultry demand Log-Log Model")
+plotFun(f(p) ~ p, add=TRUE)
+plotFun(yc(p) ~ p, add=TRUE, col="red", lwd=2)
+#plotFun(ycA(p) ~ p, add=TRUE, col="green", lwd=2) # same as above
+```
+
+Standard plot for the log-log model
+
+```{r}
+newbroiler %>% ggplot(aes(x=p, y=q)) + geom_point() +
+  stat_function(fun=yc)
+```
+
+The economist's view of the log-log model
+
+```{r}
+newbroiler %>% ggplot(aes(x=p, y=q)) + geom_point() +
+  stat_function(fun=yc) + xlim(c(0.5,3)) + coord_flip()
+```
+
+Note the slight difference in predictions
+
+```{r}
+f(1)
+yc(1)
+ycA(1)
+```
+
+Plotting the poultry demand in a log-log world
+A log-log model is a straight line in log-log world
+
+```{r}
+plot(log(newbroiler$p),log(newbroiler$q), main="Poultry demand Log-Log Model")
+abline(fit)
+```
+
+The economist's view
+
+```{r}
+newbroiler %>% ggplot(aes(x=log(p), y=log(q))) + geom_point() +
+  geom_smooth(method = lm, se = FALSE, color="red") +
+  ggtitle("Poultry demand Log-Log Model") + coord_flip()
+```
+
