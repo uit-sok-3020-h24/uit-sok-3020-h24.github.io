@@ -39,8 +39,8 @@
 |    |      |   ["old" video (Part 1)](https://uit.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=e319d74e-c548-4de3-b6f5-aee500c4d176){:target='_blank_'}     |
 |    |      |   ["old" video (Part 2)](https://uit.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=4d290fdc-36ae-4d2d-8495-aee500c57827){:target='_blank_'}     |
 | 9 | 2/9  | Continue on Chapter 3 |
-| 10 | 3/9 | Chapter 2 and 3 using R code |
-|11  |5/9  | Chapter 4 |
+| 10 | 5/9 | Chapter 2 and 3 using R code |
+|11  |9/9  | Chapter 4 |
 
 
 
