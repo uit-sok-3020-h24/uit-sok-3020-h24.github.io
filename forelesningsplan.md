@@ -43,6 +43,12 @@
 |11  |9/9  | Chapter 4 - Prediction, Goodness-of-Fit, and Modeling Issues   |
 |    |      | ["old" video](https://uit.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=befb571c-77a5-4919-b3e5-aee500c4b463){:target='_blank_'} |
 |    |      |  [Quarto R file for Chapter 4](https://raw.githubusercontent.com/uit-sok-3020-h24/uit-sok-3020-h24.github.io/main/Chapter_4.qmd){:target='_blank_'} | 
+| 12 | 10/9  | Continue on Chapter 4 |
+| 13 | 10/9  |  |
+| 14 | 12/9  |  |
+
+
+
 
 
 
