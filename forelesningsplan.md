@@ -49,11 +49,11 @@
 | 15 | 16/9  | Chapter 4 using R code |
 | 16 | 18/9  | Chapter 5 - The Multiple Regression Model  |
 |     |      |   ["old" video](https://uit.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=d3c5a562-fdf8-48f6-9b49-aee500c5236b){:target='_blank_'}     |
-|     |      |  [Note on FWL theorem](https://uit-sok-3020-h23.github.io/FWL_theorem.pdf){:target='_blank_'}   |
-|     |      |  [R code for Chapter 5](https://raw.githubusercontent.com/uit-sok-3020-h23/uit-sok-3020-h23.github.io/main/Chapter%205.R){:target='_blank_'}     |
+|     |      |  [Note on FWL theorem](https://uit-sok-3020-h24.github.io/FWL_theorem.pdf){:target='_blank_'}   |
+|     |      |  [R code for Chapter 5](https://raw.githubusercontent.com/uit-sok-3020-h24/uit-sok-3020-h24.github.io/main/Chapter%205.R){:target='_blank_'}     |
 |     |      |  A closer explanation of Example 5.10, p. 220. [Testing for elastic demand](https://en.wikipedia.org/wiki/Total_revenue_test){:target='_blank_'}.   |
-|     |      |  [Own price elasticity from sales model](https://uit-sok-3020-h23.github.io/elasticity_in_sales_model.pdf){:target='_blank_'}       |
-| 17 | 25/9  |  |
+|     |      |  [Own price elasticity from sales model](https://uit-sok-3020-h24.github.io/elasticity_in_sales_model.pdf){:target='_blank_'}       |
+| 17 | 25/9  | Chapter 5 using R code |
 | 18 | 26/9  |  |
 | 19 | 30/9  |  |
 | 20 |  |  |
