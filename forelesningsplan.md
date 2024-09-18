@@ -47,7 +47,12 @@
 |    |      | ["old" video](https://uit.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=befb571c-77a5-4919-b3e5-aee500c4b463){:target='_blank_'} |
 |    |      |  [Quarto R file for Chapter 4](https://raw.githubusercontent.com/uit-sok-3020-h24/uit-sok-3020-h24.github.io/main/Chapter_4.qmd){:target='_blank_'} | 
 | 15 | 16/9  | Chapter 4 using R code |
-| 16 |   |  |
+| 16 | 18/9  | Chapter 5 |
+| 17 | 25/9  |  |
+| 18 | 26/9  |  |
+| 19 | 30/9  |  |
+| 20 |  |  |
+
 
 
 
