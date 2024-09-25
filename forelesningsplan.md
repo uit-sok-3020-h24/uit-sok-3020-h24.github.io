@@ -55,7 +55,10 @@
 |     |      |  [Own price elasticity from sales model](https://uit-sok-3020-h24.github.io/elasticity_in_sales_model.pdf){:target='_blank_'}       |
 | 17 | 25/9  | Continue on Chapter 5 |
 | 18 | 26/9  | Chapter 5 using R code |
-| 19 | 30/9  | Chapter 6 |
+|     |      | The [delta method](https://raw.githubusercontent.com/uit-sok-3020-h23/uit-sok-3020-h23.github.io/main/delta_method.R){:target='_blank_'}.   | 
+| 19 | 30/9  |  Chapter 6 - Further Inference in the Multiple Regression Model   |
+|     |      |   ["old" video](https://uit.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=f7414982-3db6-4bb2-925b-aee500c49725){:target='_blank_'}     |
+|     |      |  [R code Chapter 6](https://raw.githubusercontent.com/uit-sok-3020-H22/uit-sok-3020-H22.github.io/main/R%20code%20for%20Chapter%206.R){:target='_blank_'}.                      |
 | 20 | 9/10  | Chapter 6 using R code |
 |    |       |                         |
 
