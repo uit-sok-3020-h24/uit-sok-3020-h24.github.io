@@ -53,10 +53,11 @@
 |     |      |  [R code for Chapter 5](https://raw.githubusercontent.com/uit-sok-3020-h24/uit-sok-3020-h24.github.io/main/Chapter%205.R){:target='_blank_'}     |
 |     |      |  A closer explanation of Example 5.10, p. 220. [Testing for elastic demand](https://en.wikipedia.org/wiki/Total_revenue_test){:target='_blank_'}.   |
 |     |      |  [Own price elasticity from sales model](https://uit-sok-3020-h24.github.io/elasticity_in_sales_model.pdf){:target='_blank_'}       |
-| 17 | 25/9  | Chapter 5 using R code |
-| 18 | 26/9  |  |
-| 19 | 30/9  |  |
-| 20 |  |  |
+| 17 | 25/9  | Continue on Chapter 5 |
+| 18 | 26/9  | Chapter 5 using R code |
+| 19 | 30/9  | Chapter 6 |
+| 20 | 9/10  | Chapter 6 using R code |
+|    |       |                         |
 
 
 
