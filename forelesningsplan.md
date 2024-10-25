@@ -65,7 +65,7 @@
 |    |      |   [Simple dummy R code in "old Chapter 7 video"](https://raw.githubusercontent.com/uit-sok-3020-h23/uit-sok-3020-h23.github.io/main/simple_dummy.R){:target='_blank_'}         | 
 |    |      |  [R code for Chapter 7](https://raw.githubusercontent.com/uit-sok-3020-h24/uit-sok-3020-h24.github.io/main/chapter_7.R){:target='_blank_'}           |
 | 22   |  24/10   |   Chapter 7 using R code                      |
-|    |      |    [Exercise_07_16](https://github.com/uit-sok-3020-h24/uit-sok-3020-h24.github.io/blob/main/Exercise_07_16.R){:target='_blank_'}                      |
+|||[Exercise 07_16](https://github.com/uit-sok-3020-h24/uit-sok-3020-h24.github.io/blob/main/Exercise_07_16.R)|
 
 
 
