@@ -68,7 +68,7 @@
 |||[Exercise 07_16](https://github.com/uit-sok-3020-h24/uit-sok-3020-h24.github.io/blob/main/Exercise_07_16.R)|
 |23|29/10|Chapter 8 - Hetroskedasticity|
 |||[R code for Chapter 8](https://github.com/uit-sok-3020-h24/uit-sok-3020-h24.github.io/blob/main/R%20code%20from%20Chapter%208.R)|
-|23|29/10|Chapter 8 using R code |
+|24|14/11|Chapter 8 using R code |
 
 
 
