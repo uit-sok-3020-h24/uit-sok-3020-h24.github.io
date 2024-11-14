@@ -69,6 +69,7 @@
 |23|29/10|Chapter 8 - Hetroskedasticity|
 |||[R code for Chapter 8](https://github.com/uit-sok-3020-h24/uit-sok-3020-h24.github.io/blob/main/R%20code%20from%20Chapter%208.R)|
 |24|14/11|Chapter 8 using R code |
+| | |Also, we will look at Q8.20 (page,403) from Chapter 8 |
 |25|18/11|Work questions from previous exams |
 |26|27/11|Work questions from previous exams |
 ||||
