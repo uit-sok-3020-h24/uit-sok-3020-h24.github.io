@@ -72,7 +72,7 @@
 | | |Also, we will look at Q8.20 (page,403) from Chapter 8 |
 |25|18/11|Work questions from previous exams |
 |26|27/11|Work questions from previous exams |
-||||
+|||[R codes from class](https://github.com/uit-sok-3020-h24/uit-sok-3020-h24.github.io/blob/main/SOK-3020_exam_H23_and_H22.R)|
 ||||
 ||09/12|School Exam  |
 
