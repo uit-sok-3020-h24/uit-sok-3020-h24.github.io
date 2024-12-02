@@ -60,16 +60,20 @@
 |     |      |   ["old" video](https://uit.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=f7414982-3db6-4bb2-925b-aee500c49725){:target='_blank_'}     |
 |     |      |  [R code Chapter 6](https://raw.githubusercontent.com/uit-sok-3020-h24/uit-sok-3020-h24.github.io/main/chapter_6.R){:target='_blank_'}.                      |
 | 20 | 9/10  | Chapter 6 using R code |
+|||[Sol to Ass-05](https://github.com/uit-sok-3020-h24/uit-sok-3020-h24.github.io/blob/main/Assignment_05.R)|
 | 21  | 15/10 | Chapter 7 - Using Indicator Variables    |
 |    |      |  ["old" video](https://uit.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=0cc6111f-0182-4bee-aa59-aee500c5110b){:target='_blank_'}                      | 
 |    |      |   [Simple dummy R code in "old Chapter 7 video"](https://raw.githubusercontent.com/uit-sok-3020-h23/uit-sok-3020-h23.github.io/main/simple_dummy.R){:target='_blank_'}         | 
 |    |      |  [R code for Chapter 7](https://raw.githubusercontent.com/uit-sok-3020-h24/uit-sok-3020-h24.github.io/main/chapter_7.R){:target='_blank_'}           |
 | 22   |  24/10   |   Chapter 7 using R code                      |
 |||[Exercise 07_16](https://github.com/uit-sok-3020-h24/uit-sok-3020-h24.github.io/blob/main/Exercise_07_16.R)|
+|||[Sol to Ass-06](https://github.com/uit-sok-3020-h24/uit-sok-3020-h24.github.io/blob/main/Assignment_06.R)|
 |23|29/10|Chapter 8 - Hetroskedasticity|
 |||[R code for Chapter 8](https://github.com/uit-sok-3020-h24/uit-sok-3020-h24.github.io/blob/main/R%20code%20from%20Chapter%208.R)|
 |24|14/11|Chapter 8 using R code |
 | | |Also, we will look at Q8.20 (page,403) from Chapter 8 |
+|||[Sol to Ass-07](https://github.com/uit-sok-3020-h24/uit-sok-3020-h24.github.io/blob/main/Assignment_07.R)|
+|||[Sol to Ass-08](https://github.com/uit-sok-3020-h24/uit-sok-3020-h24.github.io/blob/main/Assignment_08.R)|
 |25|18/11|Work questions from previous exams |
 |26|27/11|Work questions from previous exams |
 |||[R codes from class](https://github.com/uit-sok-3020-h24/uit-sok-3020-h24.github.io/blob/main/SOK-3020_exam_H23_and_H22.R)|
